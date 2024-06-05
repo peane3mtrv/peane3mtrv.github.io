@@ -387,7 +387,6 @@
                         </div>
 
                         <!-- Earnings (Monthly) Card Example -->
-                         <!-- Placeholder for the Earnings Card -->
                         <div id="earnings-card" class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
@@ -752,12 +751,9 @@
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
       
         // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
           apiKey: "AIzaSyDxJrVpuV1FTOkzFPQ_dXNdyDm9tzdu_mA",
           authDomain: "peane3mtrv.firebaseapp.com",
@@ -770,16 +766,19 @@
       
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
 
-         // Function to fetch data from Firestore and display it
-         async function fetchData() {
+        // Function to fetch data from Firestore and display it
+        async function fetchData() {
             const docRef = doc(db, "users", "users_id");
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
                 const data = docSnap.data();
-                document.getElementById('earnings-amount').textContent = data.name; // Assuming 'name' is the field you want to display
+                if (data.id === "demo1") {
+                    document.getElementById('user-name').textContent = data.name;
+                    document.getElementById('earnings-amount').textContent = "";  // Clear this field if not needed
+                }
             } else {
                 console.log("No such document!");
             }
@@ -787,7 +786,7 @@
 
         // Fetch and display data on page load
         fetchData();
-      </script>
+    </script>
 
 </body>
 
