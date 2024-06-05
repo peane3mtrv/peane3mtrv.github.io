@@ -4482,20 +4482,21 @@ input[type="button"].btn-block {
 .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {
   color: #fff;
 }
-.disabled-card {
-  opacity: 0.5; /* Reduce opacity of the card */
+.disabled-card,
+.disabled-card * {
+    opacity: 0.25;
 }
 
+/* Reduce opacity of the image within the card */
 .disabled-card .disabled-image {
-  opacity: 0.5; /* Reduce opacity of the image */
+    opacity: 0.25;
 }
 
+/* Additional styling for the disabled button */
 .disabled-card a.btn.disabled {
-  pointer-events: none; /* Disable mouse events for the button */
-  cursor: not-allowed; /* Change cursor to indicate it's disabled */
-  opacity: 0.5; /* Reduce opacity of the button */
+    pointer-events: none;
+    cursor: not-allowed;
 }
-
 .card {
   position: relative;
   display: flex;
