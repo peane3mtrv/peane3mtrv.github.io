@@ -324,6 +324,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="idname">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-red-600 small" id="classname">class</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -776,7 +777,8 @@
                 if (data.id === "demo1") {
                     document.getElementById('user-name').textContent = data.name;
                     document.getElementById('earnings-amount').textContent = data.amount;
-                    document.getElementById('idname').textContent = data.id  // Clear this field if not needed
+                    document.getElementById('idname').textContent = data.id 
+                    document.getElementById('classname').textContent = data.class // Clear this field if not needed
                 }
             } else {
                 console.log("No such document!");
