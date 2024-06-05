@@ -777,7 +777,7 @@
                 const data = docSnap.data();
                 if (data.id === "demo1") {
                     document.getElementById('user-name').textContent = data.name;
-                    document.getElementById('earnings-amount').textContent = "";  // Clear this field if not needed
+                    document.getElementById('earnings-amount').textContent = data.amount;  // Clear this field if not needed
                 }
             } else {
                 console.log("No such document!");
