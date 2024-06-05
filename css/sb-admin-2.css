@@ -4488,7 +4488,7 @@ input[type="button"].btn-block {
 }
 
 /* Reduce opacity of the image within the card */
-.disabled-card .disabled-image {
+.disabled-image {
     opacity: 0.25;
 }
 
