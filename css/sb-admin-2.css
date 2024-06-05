@@ -4483,8 +4483,17 @@ input[type="button"].btn-block {
   color: #fff;
 }
 .disabled-card {
-  pointer-events: none; /* Disable mouse events */
-  opacity: 0.5; /* Reduce opacity to indicate it's disabled */
+  opacity: 0.5; /* Reduce opacity of the card */
+}
+
+.disabled-card .disabled-image {
+  opacity: 0.5; /* Reduce opacity of the image */
+}
+
+.disabled-card a.btn.disabled {
+  pointer-events: none; /* Disable mouse events for the button */
+  cursor: not-allowed; /* Change cursor to indicate it's disabled */
+  opacity: 0.5; /* Reduce opacity of the button */
 }
 
 .card {
