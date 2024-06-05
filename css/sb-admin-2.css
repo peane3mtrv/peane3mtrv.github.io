@@ -4482,6 +4482,10 @@ input[type="button"].btn-block {
 .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {
   color: #fff;
 }
+.disabled-card {
+  pointer-events: none; /* Disable mouse events */
+  opacity: 0.5; /* Reduce opacity to indicate it's disabled */
+}
 
 .card {
   position: relative;
