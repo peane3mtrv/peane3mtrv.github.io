@@ -387,14 +387,16 @@
                         </div>
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+                         <!-- Placeholder for the Earnings Card -->
+                        <div id="earnings-card" class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1" id="user-name">
+                                                User Name
+                                            </div>
+                                            <div id="earnings-amount" class="h5 mb-0 font-weight-bold text-gray-800">$0</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -769,8 +771,24 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
+
+         // Function to fetch data from Firestore and display it
+         async function fetchData() {
+            const docRef = doc(db, "users", "users_id");
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                document.getElementById('earnings-amount').textContent = data.name; // Assuming 'name' is the field you want to display
+            } else {
+                console.log("No such document!");
+            }
+        }
+
+        // Fetch and display data on page load
+        fetchData();
       </script>
-      
+
 </body>
 
 </html>
