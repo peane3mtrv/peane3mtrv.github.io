@@ -658,22 +658,19 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-        import { firebaseConfig } from "./js/firebase-config.js"; 
+        import { firebaseConfig } from "/js/firebase-config.js"; 
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Function to fetch data from Firestore and display it
         async function fetchData() {
-            const docRef = doc(db, "users", "users_id");
+            const docRef = doc(db, "users", "user_normal");
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
                 const data = docSnap.data();
-                if (data.id === "demo1") {
+                if (data.id === "demo2") {
                     document.getElementById('user-name').textContent = data.name;
-                    document.getElementById('earnings-amount').textContent = data.amount;
                     document.getElementById('idname').textContent = data.id;
                     document.getElementById('classname').textContent = data.class;
                 }
