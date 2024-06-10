@@ -658,13 +658,11 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-        import { firebaseConfig } from "./js/firebase-config.js"; 
+        import { firebaseConfig } from "/js/firebase-config.js"; 
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Function to fetch data from Firestore and display it
         async function fetchData() {
             const docRef = doc(db, "users", "user_normal");
             const docSnap = await getDoc(docRef);
