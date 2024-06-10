@@ -743,21 +743,10 @@
     <script src="js/demo/chart-pie-demo.js"></script>
 
     <script type="module">
-        // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
         import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyDxJrVpuV1FTOkzFPQ_dXNdyDm9tzdu_mA",
-          authDomain: "peane3mtrv.firebaseapp.com",
-          projectId: "peane3mtrv",
-          storageBucket: "peane3mtrv.appspot.com",
-          messagingSenderId: "242507253259",
-          appId: "1:242507253259:web:32dbfcf2e5962e101e290e",
-          measurementId: "G-DHKMK6GHV6"
-        };
-      
+        import { firebaseConfig } from "./js/firebase-config.js"; 
+
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
@@ -772,8 +761,8 @@
                 if (data.id === "demo1") {
                     document.getElementById('user-name').textContent = data.name;
                     document.getElementById('earnings-amount').textContent = data.amount;
-                    document.getElementById('idname').textContent = data.id 
-                    document.getElementById('classname').textContent = data.class 
+                    document.getElementById('idname').textContent = data.id;
+                    document.getElementById('classname').textContent = data.class;
                 }
             } else {
                 console.log("No such document!");
