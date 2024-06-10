@@ -32,10 +32,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <img src="img/logopea.png"></i>
+                <div class="sidebar-brand-icon">
+                    <img class="img-fluid" src="img/logopea.png" alt="Logo" style="width: 75px; height: auto;">
                 </div>
-                <div class="sidebar-brand-text mx-3">ระบบจองห้องประชุม PEANE3</div>
+                <div class="sidebar-brand-text mx-2" >ระบบจองห้องประชุม PEANE3</div>
             </a>
 
             <!-- Divider -->
@@ -114,7 +114,7 @@
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item" href="404.html">404 Page Not found</a>
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
                 </div>
@@ -655,7 +655,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-lg-6 mb-4">
                                 <!-- Illustrations -->
                                 <div class="card shadow mb-4">
@@ -742,6 +742,36 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { firebaseConfig } from "./js/firebase-config.js"; 
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Function to fetch data from Firestore and display it
+        async function fetchData() {
+            const docRef = doc(db, "users", "users_id");
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                if (data.id === "demo1") {
+                    document.getElementById('user-name').textContent = data.name;
+                    document.getElementById('earnings-amount').textContent = data.amount;
+                    document.getElementById('idname').textContent = data.id;
+                    document.getElementById('classname').textContent = data.class;
+                }
+            } else {
+                console.log("No such document!");
+            }
+        }
+
+        // Fetch and display data on page load
+        fetchData();
+    </script>
 
 </body>
 
