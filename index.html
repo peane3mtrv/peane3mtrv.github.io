@@ -592,9 +592,19 @@
                             <label for="date">วันที่จอง</label>
                             <input type="date" class="form-control" id="date" required>
                         </div>
-                        <div class="form-group">
-                            <label for="time">เวลาจอง</label>
-                            <input type="time" class="form-control" id="time" required>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="start_time">เริ่มจองเวลา</label>
+                                    <input type="time" class="form-control" id="start_time" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="end_time">สิ้นสุดการจองเวลา</label>
+                                    <input type="time" class="form-control" id="end_time" required>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="topic">หัวข้อการประชุม</label>
