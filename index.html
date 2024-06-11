@@ -581,8 +581,8 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="booking-name" id="meeting-room-demo1">ชื่อผู้จอง</label>
-                            <input type="text" class="form-control" id="booking-name">
+                            <label for="booking-name" id="meeting-room-label">ชื่อห้องประชุม</label>
+                            <input type="text" class="form-control" id="booking-name" disabled>
                         </div>
                         <div class="form-group">
                             <label for="name">ชื่อผู้จอง</label>
@@ -691,6 +691,15 @@
             dateInput.value = today;
         });
     </script>
+
+<script>
+    // Get the text content of the h6 element
+    const roomName = document.getElementById('meeting-room-demo1').textContent;
+    
+    // Set the text content as the value of the input field
+    document.getElementById('booking-name').value = roomName;
+</script>
+
 
 </body>
 
