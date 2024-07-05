@@ -318,7 +318,7 @@
                                     <p> ห้องประชุมชั้น 4 อาคาร 1 กดส.ฉ.3</p>
                                     <i class="fas fa-microphone-alt">:ไมโครโฟน 4 ตัว</i>
                                     <i class="fas fa-tv">: จอโทรทัศน์ 8 ตัว</i>
-                                    <i class="fas fa-calendar-alt">: ไม่มีเวลาว่างเนื่องจากห่างประชุมถูกจอง</i>
+                                    <i class="fas fa-calendar-alt">: ไม่มีเวลาว่างเนื่องจากห้องประชุมถูกจอง</i>
                                     <i class="fas fa-male">: 40 คน</i>
                                         <div class="my-2"></div>
                                         <a href="#" class="btn btn-danger btn-icon-split disabled">
@@ -597,16 +597,15 @@
                             <input type="date" class="form-control" id="date" required>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="start_time">เริ่มจองเวลา</label>
-                                    <input type="time" class="form-control" id="start_time" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="end_time">สิ้นสุดการจองเวลา</label>
-                                    <input type="time" class="form-control" id="end_time" required>
+                                    <label for="booking_period">เลือกช่วงเวลาการจอง</label>
+                                    <select class="form-control" id="booking_period" required>
+                                        <option value="">เลือกช่วงเวลา</option>
+                                        <option value="morning">ช่วงเช้า 08.30-12.00</option>
+                                        <option value="afternoon">ช่วงบ่าย 13.00-16.30</option>
+                                        <option value="full_day">เต็มวัน</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
