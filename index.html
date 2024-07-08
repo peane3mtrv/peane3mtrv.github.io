@@ -610,10 +610,20 @@
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="snack_break">ขนมเบรค</label>
-                            <select class="form-control" id="snack_break" required>
+                            <label>ขนมเบรค</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="snackOption" id="snackYes" value="yes">
+                                <label class="form-check-label" for="snackYes">รับขนมเบรค</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="snackOption" id="snackNo" value="no" checked>
+                                <label class="form-check-label" for="snackNo">ไม่รับขนมเบรค</label>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3" id="snackBreakGroup" style="display: none;">
+                            <label for="snack_break">เลือกขนมเบรค</label>
+                            <select class="form-control" id="snack_break">
                                 <option value="" selected disabled>เลือกขนมเบรค</option>
-                                <option value="nosnack">ไม่มีเบรค</option>
                                 <option value="15">15 บาท</option>
                                 <option value="25">25 บาท</option>
                                 <option value="35">35 บาท</option>
@@ -708,6 +718,28 @@
             const dateInput = document.getElementById('date');
             const today = new Date().toISOString().split('T')[0];
             dateInput.value = today;
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const snackYes = document.getElementById('snackYes');
+            const snackNo = document.getElementById('snackNo');
+            const snackBreakGroup = document.getElementById('snackBreakGroup');
+    
+            snackYes.addEventListener('change', () => {
+                if (snackYes.checked) {
+                    snackBreakGroup.style.display = 'block';
+                    document.getElementById('snack_break').setAttribute('required', 'required');
+                }
+            });
+    
+            snackNo.addEventListener('change', () => {
+                if (snackNo.checked) {
+                    snackBreakGroup.style.display = 'none';
+                    document.getElementById('snack_break').removeAttribute('required');
+                }
+            });
         });
     </script>
 
